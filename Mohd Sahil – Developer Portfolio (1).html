@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohd Sahil – Developer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0D12;--bg2:#11151D;--tx:#F5F7FA;--tx2:#929AA8;--ac:#7C5CFC;--ac2:#36CFC9;--line:rgba(255,255,255,.08);--r:16px;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.65 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ac2);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:104px 0}
+h2{font-size:clamp(32px,5vw,48px);line-height:1.1;letter-spacing:-.03em;font-weight:800;margin-bottom:14px}
+.sub{color:var(--tx2);max-width:560px;margin-bottom:48px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:rgba(11,13,18,.8);backdrop-filter:blur(16px);z-index:60}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;background:rgba(11,13,18,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.logo i{display:inline-block;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--ac2));margin-right:8px}
+nav ul{display:flex;gap:4px;list-style:none;padding:0;overflow-x:auto;scrollbar-width:none}
+nav ul a{display:block;padding:8px 12px;border-radius:999px;color:var(--tx2);font-size:14px;font-weight:500;white-space:nowrap;transition:.2s}
+nav ul a:hover,nav ul a.on{color:var(--tx);background:rgba(255,255,255,.06)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:12px;font-weight:600;font-size:15px;border:1px solid var(--line);background:transparent;color:var(--tx);cursor:pointer;font-family:inherit;transition:.2s}
+.btn.p{background:linear-gradient(135deg,var(--ac),#5b8cff);border-color:transparent;box-shadow:0 8px 32px -8px rgba(124,92,252,.7)}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.25)}
+/* hero */
+#home{min-height:100vh;display:flex;align-items:center;padding:120px 0 72px;position:relative;overflow:hidden}
+#home .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg2);font-size:13px;color:var(--tx2);margin-bottom:28px}
+.badge b{width:8px;height:8px;border-radius:50%;background:#3ddc97;box-shadow:0 0 0 4px rgba(61,220,151,.18)}
+h1{font-size:clamp(40px,6.2vw,76px);line-height:1.02;letter-spacing:-.045em;font-weight:800}
+h1 span{display:block;background:linear-gradient(100deg,var(--tx) 30%,var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent;font-size:.62em;margin-top:14px;letter-spacing:-.035em}
+.lead{color:var(--tx2);font-size:18px;max-width:520px;margin:28px 0 36px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px}
+.soc{display:flex;gap:10px}
+.soc a{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);border-radius:12px;color:var(--tx2);transition:.2s}
+.soc a:hover{color:var(--tx);border-color:var(--ac);transform:translateY(-2px)}
+.soc svg{width:20px;height:20px}
+.map{position:relative;aspect-ratio:1;border-radius:28px;background:radial-gradient(circle at 70% 20%,rgba(124,92,252,.28),transparent 55%),radial-gradient(circle at 20% 90%,rgba(54,207,201,.18),transparent 55%),var(--bg2);border:1px solid var(--line);overflow:hidden}
+.map svg{width:100%;height:100%}
+.route{stroke-dasharray:6 9;animation:dash 24s linear infinite}
+.draw{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.6s .5s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes dash{to{stroke-dashoffset:-600}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pin{opacity:0;animation:pop .5s forwards}
+@keyframes pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+.pin circle,.pin g{transform-box:fill-box;transform-origin:center}
+.tag{position:absolute;padding:8px 12px;border-radius:12px;background:rgba(11,13,18,.8);backdrop-filter:blur(8px);border:1px solid var(--line);font-size:12px;color:var(--tx2);opacity:0;animation:pop .6s forwards}
+.tag b{display:block;color:var(--tx);font-size:14px}
+.hero-in{opacity:0;transform:translateY(16px);animation:up .8s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes up{to{opacity:1;transform:none}}
+/* about */
+.about{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start}
+.photo{aspect-ratio:4/5;border-radius:24px;border:1px dashed rgba(255,255,255,.2);background:var(--bg2);display:grid;place-items:center;text-align:center;color:var(--tx2);font-size:14px;padding:24px;position:relative;overflow:hidden}
+.photo::after{content:"";position:absolute;inset:auto -20% -30% -20%;height:60%;background:radial-gradient(ellipse,rgba(124,92,252,.3),transparent 70%)}
+.photo svg{width:56px;margin:0 auto 12px;display:block}
+.about p{color:var(--tx2);margin-bottom:16px;max-width:620px}
+.about p:first-of-type{color:var(--tx);font-size:19px}
+.info{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:32px}
+.info div{background:var(--bg2);padding:20px}
+.info dt{font-size:13px;color:var(--tx2);margin-bottom:4px}
+.info dd{margin:0;font-weight:600}
+.ph{color:var(--tx2)!important;font-weight:500!important;font-style:italic}
+.strengths{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{padding:7px 14px;border-radius:999px;background:rgba(124,92,252,.12);border:1px solid rgba(124,92,252,.3);font-size:14px}
+/* skills */
+#skills,#resume{background:var(--bg2)}
+.sk{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:border-color .25s,transform .25s}
+.card:hover{border-color:rgba(124,92,252,.5)}
+.card h3{font-size:18px;letter-spacing:-.01em;margin-bottom:4px}
+.card>p{color:var(--tx2);font-size:14px;margin-bottom:20px}
+.bars{list-style:none;padding:0;display:grid;gap:14px}
+.bars li{display:flex;justify-content:space-between;font-size:14px;gap:12px}
+.bars li span:last-child{color:var(--tx2)}
+.bars li::after{display:none}
+.note{margin-top:28px;color:var(--tx2);font-size:14px}
+/* project */
+.proj{display:grid;grid-template-columns:1.1fr 1fr;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:var(--bg2)}
+.shot{background:linear-gradient(160deg,#171c2a,#0f1320);padding:28px;display:grid;place-items:center;min-height:420px;position:relative}
+.win{width:100%;border-radius:14px;border:1px solid var(--line);background:var(--bg);overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+.bar{display:flex;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.15)}
+.dash{display:grid;grid-template-columns:90px 1fr;min-height:260px}
+.side{border-right:1px solid var(--line);padding:14px 10px;display:grid;gap:8px;align-content:start}
+.side i{height:8px;border-radius:4px;background:rgba(255,255,255,.1)}.side i:first-child{background:var(--ac)}
+.main{padding:14px;display:grid;gap:10px;grid-template-rows:auto 1fr auto}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:10px;color:var(--tx2)}
+.kpi b{display:block;font-size:14px;color:var(--tx)}
+.mini{border-radius:10px;border:1px solid var(--line);background:radial-gradient(circle at 60% 40%,rgba(54,207,201,.2),transparent 60%);position:relative;min-height:90px}
+.mini svg{position:absolute;inset:0;width:100%;height:100%}
+.shot small{position:absolute;bottom:12px;left:0;right:0;text-align:center;color:var(--tx2);font-size:12px}
+.pinfo{padding:44px 40px}
+.pinfo h3{font-size:28px;line-height:1.15;letter-spacing:-.03em;margin-bottom:14px}
+.pinfo>p{color:var(--tx2);margin-bottom:24px}
+.feat{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin-bottom:26px;font-size:14px}
+.feat li{display:flex;gap:10px}
+.feat li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--ac2);margin-top:9px}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.stack span{padding:6px 12px;border-radius:8px;border:1px dashed rgba(255,255,255,.25);color:var(--tx2);font-size:13px}
+.pb{display:flex;flex-wrap:wrap;gap:10px}
+.pb .btn{padding:11px 16px;font-size:14px}
+.det{margin-top:20px;display:none;padding:18px;border-radius:12px;background:var(--bg);border:1px solid var(--line);color:var(--tx2);font-size:14px}
+.det.open{display:block;animation:up .35s forwards}
+/* resume */
+.rs{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.tl{border-left:1px solid var(--line);padding-left:28px;display:grid;gap:30px}
+.tl article{position:relative}
+.tl article::before{content:"";position:absolute;left:-34px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 4px var(--bg2)}
+.tl h4{font-size:17px}
+.tl time{font-size:13px;color:var(--ac2)}
+.tl p{color:var(--tx2);font-size:14px;margin-top:6px}
+.rs h3{margin-bottom:22px;font-size:20px}
+/* assignments */
+.as{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.as .card{display:flex;flex-direction:column}
+.as .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.as .n{font-size:34px;font-weight:800;letter-spacing:-.03em;background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.as .card>p{margin-bottom:16px}
+.as ul{list-style:none;padding:0;margin-top:auto;display:flex;flex-wrap:wrap;gap:6px}
+.gh{display:inline-flex;align-items:center;gap:8px;margin-top:20px;align-self:flex-start;font-size:14px;font-weight:600;padding:9px 14px;border-radius:10px;border:1px solid var(--line);transition:.2s}.gh:hover{border-color:var(--ac);transform:translateY(-2px)}.gh svg{width:16px;height:16px}
+.as li{font-size:12.5px;padding:4px 10px;border-radius:8px;background:rgba(255,255,255,.05);color:var(--tx2)}
+/* contact */
+.ct{text-align:center;max-width:640px;margin:0 auto}
+.ct .sub{margin-inline:auto}
+.mail{display:inline-block;font-size:clamp(22px,4vw,34px);font-weight:700;letter-spacing:-.02em;border-bottom:2px solid var(--ac);padding-bottom:4px;margin-bottom:36px;word-break:break-all}
+.ct .soc{justify-content:center}
+footer{padding:32px 0 48px;border-top:1px solid var(--line);color:var(--tx2);font-size:14px;text-align:center}
+@media(max-width:860px){
+#home .wrap,.about,.proj,.rs{grid-template-columns:1fr}
+.map{max-width:420px;margin:0 auto;width:100%}
+.about{gap:32px}.photo{max-width:280px}
+.pinfo{padding:28px 24px}.feat{grid-template-columns:1fr}
+section{padding:72px 0}
+.logo span{display:none}
+.as{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.hero-in,.pin,.tag{opacity:1;transform:none}.draw{stroke-dashoffset:0}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+<a class="logo" href="#home"><i></i>Mohd Sahil</a>
+<ul>
+<li><a href="#home" class="on">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#resume">Resume</a></li><li><a href="#assignments">Assignments</a></li><li><a href="#contact">Contact</a></li>
+</ul></div></nav>
+
+<header id="home"><div class="wrap">
+<div>
+<div class="badge hero-in" style="animation-delay:.1s"><b></b>Available for opportunities</div>
+<h1 class="hero-in" style="animation-delay:.2s">Hi, I’m Mohd Sahil.<span>I build digital experiences that matter.</span></h1>
+<p class="lead hero-in" style="animation-delay:.35s">I’m a passionate developer who enjoys turning ideas into elegant, functional, and user-friendly digital experiences.</p>
+<div class="cta hero-in" style="animation-delay:.45s">
+<a class="btn p" href="#projects">View my work</a>
+<a class="btn" href="#resume">Download resume</a>
+</div>
+<div class="soc hero-in" style="animation-delay:.55s">
+<a href="https://github.com/sahil7650" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.500.1-3.100 0 0 1-.3 3.200 1.200a11 11 0 0 1 5.800 0c2.200-1.500 3.200-1.200 3.200-1.200.6 1.600.2 2.800.1 3.100.7.8 1.200 1.800 1.200 3.100 0 4.400-2.700 5.400-5.300 5.700.4.400.8 1.100.8 2.200v3.200c0 .3.2.7.8.6A11.500 11.500 0 0 0 12 .5z"/></svg></a>
+<a href="#" aria-label="LinkedIn (add your link)" title="LinkedIn: add your link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.500zm6.500 0h3.800v1.600h.1c.5-1 1.800-2 3.800-2 4 0 4.800 2.600 4.800 6V21h-4v-5.200c0-1.300 0-2.900-1.800-2.900s-2 1.400-2 2.800V21h-4V9.500z"/></svg></a>
+<a href="mailto:mohdsahil7344@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+</div>
+</div>
+<div class="map hero-in" style="animation-delay:.3s" aria-hidden="true">
+<svg viewBox="0 0 400 400" fill="none">
+<g stroke="rgba(255,255,255,.05)"><path d="M0 100h400M0 200h400M0 300h400M100 0v400M200 0v400M300 0v400"/></g>
+<path class="draw" d="M70 320C110 230 60 170 150 150S250 230 220 130 330 80 340 70" stroke="#7C5CFC" stroke-width="3" stroke-linecap="round"/>
+<path class="route" d="M70 320C110 230 60 170 150 150S250 230 220 130 330 80 340 70" stroke="#36CFC9" stroke-width="1.5" opacity=".7"/>
+<g class="pin" style="animation-delay:.6s"><circle cx="70" cy="320" r="18" fill="rgba(124,92,252,.2)"/><circle cx="70" cy="320" r="7" fill="#7C5CFC"/></g>
+<g class="pin" style="animation-delay:1.6s"><circle cx="150" cy="150" r="14" fill="rgba(54,207,201,.2)"/><circle cx="150" cy="150" r="5" fill="#36CFC9"/></g>
+<g class="pin" style="animation-delay:2.2s"><circle cx="220" cy="130" r="14" fill="rgba(54,207,201,.2)"/><circle cx="220" cy="130" r="5" fill="#36CFC9"/></g>
+<g class="pin" style="animation-delay:3s"><circle cx="340" cy="70" r="20" fill="rgba(124,92,252,.2)"/><circle cx="340" cy="70" r="8" fill="#F5F7FA"/></g>
+</svg>
+<div class="tag" style="left:6%;bottom:6%;animation-delay:1s">Featured project<b>Smart Travel Planner</b></div>
+<div class="tag" style="right:6%;top:36%;animation-delay:2.8s">Day 3 budget<b>On track</b></div>
+</div>
+</div></header>
+
+<section id="about"><div class="wrap">
+<h2>Beyond the code.</h2>
+<p class="sub">A BCA student who learns by building, one project at a time.</p>
+<div class="about">
+<div class="photo"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Replace with your photo<br><small>Edit the .photo block in the HTML</small></div></div>
+<div>
+<p>I’m a Bachelor of Computer Applications student at Galgotias University with a strong foundation in computer science principles and programming, and a habit of working through problems until they’re solved.</p>
+<p>Alongside my degree I’ve completed virtual internships and courses in cyber security, graphic design, and training and development, which gives me a mix of technical and creative skills. I’m passionate about developing innovative solutions and keeping up with new technologies.</p>
+<p class="ph">Add a sentence or two about your development journey and technical interests.</p>
+<div class="strengths">
+<span class="chip">Problem solving</span><span class="chip">Quick learner</span><span class="chip">Creativity</span><span class="chip">Communication</span><span class="chip">Leadership</span><span class="chip">Time management</span>
+</div>
+<dl class="info">
+<div><dt>Education</dt><dd>BCA, Galgotias University (2023–2025)</dd></div>
+<div><dt>Location</dt><dd>Greater Noida, Uttar Pradesh</dd></div>
+<div><dt>Current focus</dt><dd class="ph">Add your current focus</dd></div>
+<div><dt>Career interests</dt><dd class="ph">Add your career goals</dd></div>
+</dl>
+</div></div></div></section>
+
+<section id="skills"><div class="wrap">
+<h2>Skills.</h2>
+<p class="sub">What I’ve practiced in coursework and what I bring to a team.</p>
+<div class="sk">
+<div class="card"><h3>Web development</h3><p>Shown in my lab and assignment work.</p>
+<ul class="bars"><li><span>HTML</span><span>Forms, tables, HTML5</span></li><li><span>CSS</span><span>Styling, layout</span></li><li><span>JavaScript</span><span>DOM, events, validation</span></li></ul></div>
+<div class="card"><h3>Design</h3><p>From my graphic design internship.</p>
+<ul class="bars"><li><span>Graphic design</span><span>Logos, brochures</span></li><li><span>Social media content</span><span>Marketing graphics</span></li></ul></div>
+<div class="card"><h3>Security & learning</h3><p>From my internship and NPTEL course.</p>
+<ul class="bars"><li><span>Cyber security</span><span>Fundamentals</span></li><li><span>Training & development</span><span>12-week course</span></li></ul></div>
+<div class="card"><h3>Professional</h3><p>How I work.</p>
+<ul class="bars"><li><span>Problem solving</span></li><li><span>Time management</span></li><li><span>Communication</span></li><li><span>Typing</span></li></ul></div>
+</div>
+<p class="note">Add frameworks, backend, database, and tools here as you learn them. Only list what you can talk about in an interview.</p>
+</div></section>
+
+<section id="projects"><div class="wrap">
+<h2>Featured project.</h2>
+<p class="sub">My main project, built to make trip planning less of a spreadsheet.</p>
+<div class="proj">
+<div class="shot">
+<div class="win"><div class="bar"><i></i><i></i><i></i></div>
+<div class="dash"><div class="side"><i></i><i></i><i></i><i></i></div>
+<div class="main"><div class="row"><div class="kpi">Budget<b>₹ 42,000</b></div><div class="kpi">Spent<b>₹ 18,500</b></div><div class="kpi">Days<b>5</b></div></div>
+<div class="mini"><svg viewBox="0 0 200 90" fill="none"><path d="M15 70C40 40 60 75 90 45S140 20 185 25" stroke="#7C5CFC" stroke-width="2" stroke-dasharray="4 4"/><circle cx="15" cy="70" r="4" fill="#36CFC9"/><circle cx="90" cy="45" r="4" fill="#36CFC9"/><circle cx="185" cy="25" r="5" fill="#F5F7FA"/></svg></div>
+<div class="row"><div class="kpi">Day 1</div><div class="kpi">Day 2</div><div class="kpi">Day 3</div></div></div></div></div>
+<small>Illustrative preview. Replace with a real screenshot.</small>
+</div>
+<div class="pinfo">
+<h3>Smart Travel Planner & Budget Optimizer</h3>
+<p>An intelligent travel planning platform that helps users discover destinations, generate personalized itineraries, manage expenses, and optimize travel budgets.</p>
+<ul class="feat"><li>AI-powered itinerary generation</li><li>Smart budget optimization</li><li>Destination discovery</li><li>Expense tracking</li><li>Travel recommendations</li><li>Interactive map integration</li><li>Personalized trip planning</li></ul>
+<div class="stack"><span>Add tech</span><span>Add tech</span><span>Add tech</span></div>
+<div class="pb">
+<a class="btn p" href="#" title="Add your live demo link">Live demo</a>
+<a class="btn" href="https://github.com/sahil7650/traveliq" target="_blank" rel="noopener">GitHub repository</a>
+<button class="btn" id="dtn" aria-expanded="false" aria-controls="det">View project details</button>
+</div>
+<div class="det" id="det">Add your role, the problem you solved, what you built, and what you learned. Details like these are what interviewers ask about.</div>
+</div></div></div></section>
+
+<section id="resume"><div class="wrap">
+<h2>Resume.</h2>
+<p class="sub">Education and experience at a glance.</p>
+<div class="cta"><button class="btn p" onclick="window.print()">Save as PDF</button></div>
+<div class="rs">
+<div><h3>Experience</h3><div class="tl">
+<article><h4>Cyber security training, AICTE EDUskills (virtual)</h4><time>Jan 2023 – Apr 2023</time><p>Completed a cyber security training program covering how to protect digital information, with virtual team projects and simulations.</p></article>
+<article><h4>Graphic designer, Campalin (virtual)</h4><time>Feb 2023 – Apr 2023</time><p>Created graphics for digital marketing campaigns, including logos, brochures, and social media content.</p></article>
+<article><h4>Training and development, NPTEL Swayam (virtual)</h4><time>Jan 2023 – Apr 2023</time><p>Completed a 12-week course in training methodologies and development strategies.</p></article>
+</div></div>
+<div><h3>Education</h3><div class="tl"><article><h4>Bachelor of Computer Applications (BCA)</h4><time>2023 – 2025</time><p>Galgotias University</p></article></div></div>
+</div></div></section>
+
+<section id="assignments"><div class="wrap">
+<h2>Assignments.</h2>
+<p class="sub">Coursework from my web development labs: 5 sets, 150+ exercises.</p>
+<div class="as">
+<div class="card"><div class="top"><h3>Web lab 1</h3><span class="n">19</span></div><p>Nineteen labs from first page to full sites, including a college website and a restaurant website with menu and booking pages.</p><ul><li>HTML basics</li><li>Hyperlinks</li><li>Images</li><li>Tables</li><li>Multimedia</li><li>Forms</li><li>Semantic HTML</li><li>Iframes</li><li>Multi-page sites</li></ul><a class="gh" href="https://github.com/sahil7650/web_assignment_1" target="_blank" rel="noopener">View on GitHub</a></div>
+<div class="card"><div class="top"><h3>Web lab, session 2</h3><span class="n">10</span></div><p>Ten table exercises, from simple data tables to merged cells, timetables, and tables with images and links.</p><ul><li>rowspan</li><li>colspan</li><li>Timetable</li><li>Grouped data</li><li>Hyperlinks in tables</li></ul><a class="gh" href="https://github.com/sahil7650/web_assignment_2" target="_blank" rel="noopener">View on GitHub</a></div>
+<div class="card"><div class="top"><h3>JavaScript lab</h3><span class="n">22</span></div><p>Twenty-two programs that practice JavaScript logic and the DOM, from number series to validated forms.</p><ul><li>Form validation</li><li>Calculator</li><li>Prime numbers</li><li>Fibonacci</li><li>Factorial</li><li>Mouse events</li><li>setInterval</li><li>Login page</li></ul><a class="gh" href="https://github.com/sahil7650/web_assignment_5" target="_blank" rel="noopener">View on GitHub</a></div>
+<div class="card"><div class="top"><h3>HTML assignment 3: forms</h3><span class="n">50</span></div><p>Fifty questions on HTML forms, split into basic, intermediate, and advanced levels, with shared CSS and JavaScript.</p><ul><li>Basic Q1–20</li><li>Intermediate Q21–40</li><li>Advanced Q41–50</li></ul><a class="gh" href="https://github.com/sahil7650/web_assignment_3" target="_blank" rel="noopener">View on GitHub</a></div>
+<div class="card"><div class="top"><h3>HTML assignment 4: HTML5</h3><span class="n">50</span></div><p>Fifty questions on HTML5 elements across three difficulty levels, with sample images for figure exercises.</p><ul><li>Basic Q1–20</li><li>Intermediate Q21–40</li><li>Advanced Q41–50</li></ul><a class="gh" href="https://github.com/sahil7650/web_assignment_4" target="_blank" rel="noopener">View on GitHub</a></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap ct">
+<h2>Let’s work together.</h2>
+<p class="sub">I’m open to internships, entry-level roles, and collaborations. Email is the fastest way to reach me.</p>
+<a class="mail" href="mailto:mohdsahil7344@gmail.com">mohdsahil7344@gmail.com</a>
+<div class="soc">
+<a href="https://github.com/sahil7650" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 8.4 22.9c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.500.1-3.100 0 0 1-.3 3.200 1.200a11 11 0 0 1 5.800 0c2.200-1.500 3.200-1.200 3.200-1.200.6 1.600.2 2.800.1 3.100.7.8 1.200 1.800 1.200 3.100 0 4.400-2.700 5.400-5.300 5.700.4.400.8 1.100.8 2.200v3.200c0 .3.2.7.8.6A11.500 11.500 0 0 0 12 .5z"/></svg></a>
+<a href="#" aria-label="LinkedIn (add your link)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.500zm6.500 0h3.800v1.600h.1c.5-1 1.800-2 3.800-2 4 0 4.800 2.600 4.800 6V21h-4v-5.200c0-1.300 0-2.900-1.800-2.900s-2 1.400-2 2.800V21h-4V9.500z"/></svg></a>
+</div></div></section>
+<footer>© 2026 Mohd Sahil · Greater Noida, India</footer>
+
+<script>
+var b=document.getElementById('dtn'),d=document.getElementById('det');
+b.addEventListener('click',function(){var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+var links=[].slice.call(document.querySelectorAll('nav ul a'));
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('header[id],section[id]').forEach(function(s){io.observe(s)})}
+</script>
+</body>
+</html>
